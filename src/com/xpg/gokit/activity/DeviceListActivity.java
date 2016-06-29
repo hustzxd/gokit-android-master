@@ -344,8 +344,12 @@ public class DeviceListActivity extends BaseActivity implements OnItemClickListe
 			}
 
 			xpgWifiDevice.setListener(deviceListener);
-			File file = new File(this.getFilesDir() + "/Devices/" + xpgWifiDevice.getProductKey() + ".json");
+			String filename = this.getFilesDir() + "/Devices/" + xpgWifiDevice.getProductKey() + ".json";
+			Log.e("sss", filename);
+			File file = new File(filename);
+			
 			if (!file.exists()) {
+				Toast.makeText(getApplicationContext(), "file not exists", Toast.LENGTH_LONG).show();
 				return;
 			}
 
